@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Bar } from './styles';
 
-export type ProgressBarColor = 'danger' | 'success'
+export type ProgressBarColor = 'danger' | 'success' | 'warning' | 'ok' | 'primary'
 
 interface ProgressBarProps {
   percent: number

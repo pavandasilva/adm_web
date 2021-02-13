@@ -56,4 +56,8 @@ export const ProgressesBar = styled.div`
   display: flex;
   flex-direction: column;
 
+  > div {
+    margin-top: 10px;
+  }
+
 `;

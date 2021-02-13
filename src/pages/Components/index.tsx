@@ -73,7 +73,7 @@ const Components = () => (
     </section>
     <section>
       <SampleStatused>
-        <h2>Inputs Editing</h2>
+        <h2>Editing Inputs </h2>
         <Input placeholder="Editing Input" mode="editing" title="Editing Input" value="Editing Input" mask="" />
         <Input placeholder="Editing Input Erro" mode="editing" title="Editing Input Erro" error="Erro desconhecido Editing Input Erro" value="Editing Input" mask="" />
 
@@ -87,10 +87,10 @@ const Components = () => (
     <section>
       <ProgressesBar>
         <h2>Progresses Bar</h2>
-        <h3>Danger</h3>
         <ProgressBar percent={40} color="danger" />
-        <h3>Success</h3>
         <ProgressBar percent={80} color="success" />
+        <ProgressBar percent={22} color="ok" />
+        <ProgressBar percent={99} color="primary" />
       </ProgressesBar>
     </section>
   </Container>
