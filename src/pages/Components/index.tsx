@@ -6,6 +6,7 @@ import {
   Container, Buttons, Statuses, SampleStatused,
 } from './styles';
 import Search from '../../components/Search';
+import Input from '../../components/Input';
 
 const Components = () => (
   <Container>
@@ -58,6 +59,21 @@ const Components = () => (
         <h2>Searches</h2>
         <Search placeholder="Buscador mainBackgroundLight" color="mainBackgroundLight" />
         <Search placeholder="Buscador mainBackgroundDarked" color="mainBackground" />
+      </SampleStatused>
+    </section>
+    <section>
+      <SampleStatused>
+        <h2>Inputs</h2>
+        <Input placeholder="Default Input" mode="default" title="Default Input" />
+        <Input placeholder="Default Input Erro" mode="default" title="Default Input" error="Erro desconhecido" />
+        <Input placeholder="New Input" mode="new" title="New Input" />
+        <Input placeholder="New Input Erro" mode="new" title="New Input" error="Erro desconhecido" />
+
+        <h3>Editing</h3>
+        <Input placeholder="Editing Input" mode="editing" title="Editing Input" value="Editing Input" />
+        <Input placeholder="Editing Input Erro" mode="editing" title="Editing Input Erro" error="Erro desconhecido" value="Editing Input" />
+        {/*   <Input mode="editing" />
+        <Input mode="showing" /> */}
       </SampleStatused>
     </section>
   </Container>

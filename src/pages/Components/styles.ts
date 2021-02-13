@@ -42,4 +42,10 @@ export const SampleStatused = styled.div`
   > div + div {
     margin-top: 15px;
   }
+
+  h3 {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
 `;

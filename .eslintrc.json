@@ -55,7 +55,9 @@
     "max-len": "off",
     "eslint-disable react/jsx-props-no-spreading": "off",
     "eslint-disable no-case-declarations": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "eslint-disable react/require-default-props": "off",
+    "react/require-default-props": "off"
   },
   "settings": {
     "import/resolver": {
