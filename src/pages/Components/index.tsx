@@ -64,16 +64,20 @@ const Components = () => (
     <section>
       <SampleStatused>
         <h2>Inputs</h2>
-        <Input placeholder="Default Input" mode="default" title="Default Input" />
-        <Input placeholder="Default Input Erro" mode="default" title="Default Input" error="Erro desconhecido no input de default" />
-        <Input placeholder="New Input" mode="new" title="New Input" />
-        <Input placeholder="New Input Erro" mode="new" title="New Input" error="Erro desconhecido New Input Erro" />
+        <Input placeholder="Default Input" mode="default" title="Default Input" mask="" />
+        <Input placeholder="Default Input Erro" mode="default" title="Default Input" error="Erro desconhecido no input de default" mask="" />
+        <Input placeholder="New Input" mode="new" title="New Input" mask="" />
+        <Input placeholder="New Input Erro" mode="new" title="New Input" error="Erro desconhecido New Input Erro" mask="" />
+      </SampleStatused>
+    </section>
+    <section>
+      <SampleStatused>
+        <h2>Inputs Editing</h2>
+        <Input placeholder="Editing Input" mode="editing" title="Editing Input" value="Editing Input" mask="" />
+        <Input placeholder="Editing Input Erro" mode="editing" title="Editing Input Erro" error="Erro desconhecido Editing Input Erro" value="Editing Input" mask="" />
 
-        <Input placeholder="Default Input" mode="default" title="Default Input" required />
-
-        <h3>Editing</h3>
-        <Input placeholder="Editing Input" mode="editing" title="Editing Input" value="Editing Input" />
-        <Input placeholder="Editing Input Erro" mode="editing" title="Editing Input Erro" error="Erro desconhecido Editing Input Erro" value="Editing Input" />
+        <h3>Masks</h3>
+        <Input placeholder="Data masking" mode="editing" title="Data masking" value="22/10/2020" mask="99/99/9999" />
         {/*   <Input mode="editing" />
         <Input mode="showing" /> */}
       </SampleStatused>

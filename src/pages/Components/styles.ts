@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   padding: 50px;
-  height: 100vh;
+  height: 100%;
   background: ${(props) => props.theme.colors.mainBackground};
+  flex-wrap: wrap;
 
   h2 {
     font-size: 30px;

@@ -29,6 +29,7 @@ export const Container = styled.div<ModeInputStyles>`
     width: 100%;
     color: ${(props) => props.theme.colors.font.primary};
     height: 42px;
+    background-color: 'transparent';
 
     &::placeholder{
       color: ${(props) => props.theme.colors.font.tertiary};
