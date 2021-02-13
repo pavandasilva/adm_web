@@ -3,10 +3,11 @@ import Button from '../../components/Button';
 import Status from '../../components/Status';
 import SampleStatus from '../../components/SampleStatus';
 import {
-  Container, Buttons, Statuses, SampleStatused,
+  Container, Buttons, Statuses, SampleStatused, ProgressesBar,
 } from './styles';
 import Search from '../../components/Search';
 import Input from '../../components/Input';
+import ProgressBar from '../../components/ProgressBar';
 
 const Components = () => (
   <Container>
@@ -81,6 +82,16 @@ const Components = () => (
         {/*   <Input mode="editing" />
         <Input mode="showing" /> */}
       </SampleStatused>
+    </section>
+
+    <section>
+      <ProgressesBar>
+        <h2>Progresses Bar</h2>
+        <h3>Danger</h3>
+        <ProgressBar percent={40} color="danger" />
+        <h3>Success</h3>
+        <ProgressBar percent={80} color="success" />
+      </ProgressesBar>
     </section>
   </Container>
 );

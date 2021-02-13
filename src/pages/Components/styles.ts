@@ -50,3 +50,10 @@ export const SampleStatused = styled.div`
     margin-bottom: 15px;
   }
 `;
+
+export const ProgressesBar = styled.div`
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+
+`;
