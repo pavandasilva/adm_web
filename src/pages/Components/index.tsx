@@ -5,6 +5,7 @@ import SampleStatus from '../../components/SampleStatus';
 import {
   Container, Buttons, Statuses, SampleStatused,
 } from './styles';
+import Search from '../../components/Search';
 
 const Components = () => (
   <Container>
@@ -50,6 +51,13 @@ const Components = () => (
         <SampleStatus color="success">success</SampleStatus>
         <SampleStatus color="ok">ok</SampleStatus>
         <SampleStatus color="warning">warning</SampleStatus>
+      </SampleStatused>
+    </section>
+    <section>
+      <SampleStatused>
+        <h2>Searches</h2>
+        <Search placeholder="Buscador mainBackgroundLight" color="mainBackgroundLight" />
+        <Search placeholder="Buscador mainBackgroundDarked" color="mainBackground" />
       </SampleStatused>
     </section>
   </Container>

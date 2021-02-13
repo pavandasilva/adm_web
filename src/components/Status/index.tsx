@@ -9,12 +9,10 @@ interface StatusProps {
   children: React.ReactNode
 }
 
-const Status = ({color, children}: StatusProps) => {
-  return (
-    <Container color={color}>
-      { children }
-    </Container>
-  )
-}
+const Status = ({ color, children }: StatusProps) => (
+  <Container color={color}>
+    { children }
+  </Container>
+);
 
 export default Status;

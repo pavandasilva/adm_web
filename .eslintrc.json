@@ -54,7 +54,8 @@
     "camelcase": "off",
     "max-len": "off",
     "eslint-disable react/jsx-props-no-spreading": "off",
-    "eslint-disable no-case-declarations": "off"
+    "eslint-disable no-case-declarations": "off",
+    "react/jsx-props-no-spreading": "off"
   },
   "settings": {
     "import/resolver": {

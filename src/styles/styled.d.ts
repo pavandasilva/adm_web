@@ -1,4 +1,4 @@
-import 'styled-components'
+import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -8,10 +8,13 @@ declare module 'styled-components' {
         primary: string,
         secondary: string,
         tertiary: string,
+        quaternary: string,
         reverse: string
       },
+
       mainBackground: string,
-      mainBackgroundDarked: string,      
+      mainBackgroundLight: string
+      mainBackgroundDarked: string,
       primary: string,
       warning: string,
       danger: string,
@@ -87,5 +90,5 @@ declare module 'styled-components' {
       },
     }
   }
-  
+
 }
