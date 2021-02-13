@@ -7,12 +7,21 @@ interface ModeInputStyles {
   focused: boolean
 }
 
+export const Wrapper = styled.div<ModeInputStyles>`
+  height: 100px;
+`;
+
 export const Container = styled.div<ModeInputStyles>`
   display: flex;
-  flex-direction: column;
   height: 48px;
-  width: 300px;
-  padding-bottom: 6px;
+  margin-bottom: 6px;
+
+  div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    display: 1;
+    width: 300px;
+  }
 
   input {
     margin-top: 4px;
@@ -46,6 +55,7 @@ export const Container = styled.div<ModeInputStyles>`
 export const Title = styled.div<ModeInputStyles>`
   font-size: 11px;
   font-weight: 500;
+
   color: ${(props) => {
     let fontColor = '';
 
@@ -55,9 +65,46 @@ export const Title = styled.div<ModeInputStyles>`
       fontColor = props.theme.colors.font.secondary;
     }
 
-    if (props.error) {
-      fontColor = props.theme.colors.danger;
-    }
     return fontColor;
-  }}
+  }};
+`;
+
+export const InfoIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 22px;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: ${(props) => props.theme.colors.danger};
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  color: ${(props) => props.theme.colors.danger};
+  font-size: 10px;
+  font-weight: 600;
+  width: 230px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+`;
+
+export const InfoContent = styled.div`
+  display: flex;
+  padding: 0px 9px;
+
+  > span {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    overflow: hidden;
+    font-size: 11px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    color:  ${(props) => props.theme.colors.font.tertiary};
+  }
 `;
