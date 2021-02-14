@@ -7,7 +7,7 @@ import React, {
 import Info from '../../assets/icons/svgs/Info';
 
 import {
-  Wrapper, InfoIcon, Title, Container, ErrorMessage, InfoContent,
+  Wrapper, InfoIcon, Title, Container, ErrorMessage, InfoContent, Line,
 } from './styles';
 
 export type ModeInput = 'showing' | 'new' | 'default' | 'editing'
@@ -48,9 +48,10 @@ const Input = ({
           <InputMask {...rest} placeholder={mode !== 'default' ? placeholder : ''} onChange={onChange} value={value} onFocus={onFocus} onBlur={onBlur} />
         </div>
         {error && <InfoIcon><Info /></InfoIcon>}
+        {!!error && <Line mode={mode} error={!!error} focused={focused} /> }
       </Container>
 
-      <InfoContent>
+      <InfoContent focused={focused}>
         {error && <ErrorMessage>{error}</ErrorMessage>}
         {!required && <span>Opcional</span>}
       </InfoContent>

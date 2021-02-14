@@ -1,20 +1,11 @@
-import styled, { keyframes } from 'styled-components';
-import { darken } from 'polished';
+import styled from 'styled-components';
 import { ProgressBarColor } from '.';
+import { increasingWidth } from '../../styles/themes/animations';
 
 interface ProgressBarStyles {
   percent: number
   color: ProgressBarColor
 }
-
-const increasingWidth = () => keyframes`
-  0% {
-      transform : scaleX(0);
-  }
-  100% {
-      transform : scaleX(1);
-  }
-`;
 
 export const Container = styled.div<ProgressBarStyles>`
   height: 4px;

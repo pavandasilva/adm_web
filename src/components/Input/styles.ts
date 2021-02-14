@@ -1,9 +1,14 @@
 import styled, { css } from 'styled-components';
 import { ModeInput } from '.';
+import { increasingWidth, opacity } from '../../styles/themes/animations';
 
 interface ModeInputStyles {
   mode: ModeInput
   error: boolean
+  focused: boolean
+}
+
+interface InfoContentStyles {
   focused: boolean
 }
 
@@ -13,6 +18,7 @@ export const Wrapper = styled.div<ModeInputStyles>`
 
 export const Container = styled.div<ModeInputStyles>`
   display: flex;
+  position: relative;
   height: 48px;
   margin-bottom: 6px;
 
@@ -36,21 +42,8 @@ export const Container = styled.div<ModeInputStyles>`
     }
   }
 
-  ${(props) => {
-    let borderColor = props.theme.colors.font.tertiary;
-
-    if (props.error) {
-      borderColor = props.theme.colors.danger;
-    } else if (props.focused) {
-      borderColor = props.theme.colors.font.primary;
-    }
-
-    return css`
-      border-bottom: 1px solid ${borderColor};
-    `;
-  }};
-
-  transition: all 0.5ms;
+  border-bottom: 1px solid ${(props) => (props.focused ? props.theme.colors.font.primary : props.theme.colors.font.tertiary)};
+  transition: all 700ms ease;
 `;
 
 export const Title = styled.div<ModeInputStyles>`
@@ -94,7 +87,7 @@ export const ErrorMessage = styled.div`
   white-space: nowrap;
 `;
 
-export const InfoContent = styled.div`
+export const InfoContent = styled.div<InfoContentStyles>`
   display: flex;
   padding: 0px 9px;
 
@@ -106,6 +99,32 @@ export const InfoContent = styled.div`
     font-size: 11px;
     font-weight: 200;
     letter-spacing: 1px;
-    color:  ${(props) => props.theme.colors.font.tertiary};
+    color:  ${(props) => (props.focused ? props.theme.colors.font.primary : props.theme.colors.font.tertiary)};
+    transition: all 400ms ease;
   }
+`;
+
+export const Line = styled.div<ModeInputStyles>`
+  position: absolute;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  padding: 1px;
+
+  ${(props) => {
+    let color = props.theme.colors.font.tertiary;
+
+    if (props.error) {
+      color = props.theme.colors.danger;
+    } else if (props.focused) {
+      color = props.theme.colors.font.primary;
+    }
+
+    return css`
+        background-color: ${color};
+    `;
+  }};
+
+  animation: ${increasingWidth()} 600ms cubic-bezier(0.68, -0.05, 0.27, 1.05) forwards;
+  transform-origin: center;
 `;
