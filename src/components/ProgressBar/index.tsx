@@ -10,7 +10,7 @@ interface ProgressBarProps {
 }
 
 const ProgressBar = ({ percent, color }: ProgressBarProps) => (
-  <Container>
+  <Container percent={percent} color={color}>
     <Bar percent={percent} color={color} />
   </Container>
 );

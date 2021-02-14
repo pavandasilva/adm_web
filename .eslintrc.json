@@ -57,7 +57,8 @@
     "eslint-disable no-case-declarations": "off",
     "react/jsx-props-no-spreading": "off",
     "eslint-disable react/require-default-props": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "no-unused-vars": "warn"
   },
   "settings": {
     "import/resolver": {
