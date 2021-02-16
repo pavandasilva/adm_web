@@ -3,11 +3,124 @@ import Button from '../../components/Button';
 import Status from '../../components/Status';
 import SampleStatus from '../../components/SampleStatus';
 import {
-  Container, Buttons, Statuses, SampleStatused, ProgressesBar,
+  Container, Buttons, Statuses, SampleStatused, ProgressesBar, TableDemo, FlexBreak,
 } from './styles';
 import Search from '../../components/Search';
 import Input from '../../components/Input';
 import ProgressBar from '../../components/ProgressBar';
+import Table, { DataType, HeaderType } from '../../components/Table';
+
+const header: HeaderType[] = [
+  {
+    title: 'Contato',
+    reference: 'contact',
+    contrast: true,
+  },
+  {
+    title: 'E-mail',
+    reference: 'email',
+  },
+  {
+    title: 'Empresa',
+    reference: 'company',
+  },
+  {
+    title: 'Cidade',
+    reference: 'city',
+  },
+  {
+    title: 'Situação',
+    reference: 'status',
+    width: 100,
+  },
+];
+
+const data: DataType = [
+  {
+    contact: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="success">Ativo</SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="success">Ativo</SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud Brasilia count tower desce a letra',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="success">Ativo</SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="danger">Bloqueado</SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="ok">Inativo </SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="success">Ativo </SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="success">Ativo</SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="success">Ativo</SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud Brasilia count tower desce a letra',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="success">Ativo</SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="danger">Bloqueado</SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="ok">Inativo </SampleStatus>,
+  },
+  {
+    contact: 'Lindsey Stroud',
+    email: 'lindsey.stroud@gmail.com',
+    company: 'Banana Café',
+    city: 'Jaú',
+    status: <SampleStatus color="success">Ativo </SampleStatus>,
+  },
+];
 
 const Components = () => (
   <Container>
@@ -93,6 +206,14 @@ const Components = () => (
         <ProgressBar percent={99} color="primary" />
       </ProgressesBar>
     </section>
+
+    <FlexBreak />
+
+    <TableDemo>
+      <h2>Table</h2>
+      <Table title="Demonstração" data={data} header={header} editable />
+    </TableDemo>
+
   </Container>
 );
 

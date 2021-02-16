@@ -61,3 +61,19 @@ export const ProgressesBar = styled.div`
   }
 
 `;
+
+export const TableDemo = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  margin-left: 30px;
+  background-color: ${(props) => props.theme.colors.mainBackgroundDarked};
+
+  padding: 50px;
+`;
+
+export const FlexBreak = styled.div`
+  display: flex;
+  width: 100%;
+`;
