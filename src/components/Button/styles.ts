@@ -31,6 +31,7 @@ export const Container = styled.button<ContainerButton>`
     box-shadow: none;
     border: 1px solid ${(props) => props.theme.buttons[props.color].disabled.borderColor};
     color: ${(props) => props.theme.buttons[props.color].disabled.fontColor};
+    cursor: default;
   }
 
   &:active {
@@ -40,5 +41,6 @@ export const Container = styled.button<ContainerButton>`
   }
 
   transition: all 0.3s;
+  transition-delay: 0.04s;
   user-select: none;
 `;

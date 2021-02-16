@@ -69,8 +69,7 @@ export const TableDemo = styled.div`
   width: 100%;
   margin-left: 30px;
   background-color: ${(props) => props.theme.colors.mainBackgroundDarked};
-
-  padding: 50px;
+  padding: 10px;
 `;
 
 export const FlexBreak = styled.div`

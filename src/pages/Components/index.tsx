@@ -210,8 +210,7 @@ const Components = () => (
     <FlexBreak />
 
     <TableDemo>
-      <h2>Table</h2>
-      <Table title="Demonstração" data={data} header={header} editable />
+      <Table title="Table Demonstração" data={data} header={header} editable />
     </TableDemo>
 
   </Container>
