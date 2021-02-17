@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { darken } from 'polished';
 import { fadein } from '../../styles/themes/animations';
 
 interface TableHeaderStyles {
@@ -12,6 +13,14 @@ interface TableHeaderBodyStyles {
   editable: boolean
 }
 
+interface HeaderStyles {
+  hasSelectedItem: boolean
+}
+
+interface RowBodyStyles {
+  checked: boolean
+}
+
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -19,6 +28,21 @@ export const Container = styled.div`
   border-radius: 5px;
   overflow: hidden;
   animation: ${fadein} 0.6s ease-in-out forwards;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+`;
+
+export const Header = styled.div<HeaderStyles>`
+  display: flex;
+  width: 100%;
+  background-color: ${(props) => (props.hasSelectedItem ? props.theme.colors.mainBackgroundLight : 'transparent')};
+  transition: all 0.4s;
+  transition-delay: 0.004s;
 
   > span {
     display: flex;
@@ -31,13 +55,39 @@ export const Container = styled.div`
     width: 100%;
     letter-spacing: 1.3px;
   }
+`;
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    flex-wrap: wrap;
+export const Actions = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 400px;
+  height: 100%;
+  margin-right: 35px;
+  overflow: hidden;
+`;
+
+export const ActionWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  animation: ${fadein} 0.5s forwards;
+
+  + div {
+    margin-left: 25px;
   }
+
+  &:hover{
+    background-color: ${(props) => darken(0.04, props.theme.colors.mainBackgroundLight)};
+  }
+
+  transition: background-color 0.3s;
+  transition-delay: 0.02s;
 `;
 
 export const HeaderCell = styled.div<TableHeaderStyles>`
@@ -65,17 +115,21 @@ export const BodyCell = styled.div<TableHeaderBodyStyles>`
   overflow: hidden;
 `;
 
-export const RowBody = styled.div`
+export const RowBody = styled.div<RowBodyStyles>`
   display: flex;
   justify-content: space-between;
   width: 100%;
   border-top: 1px solid ${(props) => props.theme.colors.font.quaternary};
   cursor: pointer;
 
+  ${(props) => props.checked && css`
+    background-color: ${props.theme.colors.mainBackgroundLight};
+  `}
+
   &:hover {
     background-color: ${(props) => props.theme.colors.mainBackgroundLight};
     transition: all 0.4s;
-    transition-delay: 0.04s;
+    transition-delay: 0.004s;
   }
 `;
 

@@ -1,13 +1,13 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-shadow */
 import React, {
-  ChangeEvent, useCallback, useEffect, useState,
+  useCallback, useEffect, useMemo, useState,
 } from 'react';
 
-import { produce } from 'immer';
+// eslint-disable-next-line import/no-unresolved
+import { MdCreate, MdDelete } from 'react-icons/md';
 
+import { useTheme } from 'styled-components';
 import {
-  Container, HeaderCell, BodyCell, RowBody, BreakLine, CheckBoxWrapper,
+  Container, HeaderCell, BodyCell, RowBody, BreakLine, CheckBoxWrapper, Header, Actions, ActionWrapper,
 } from './styles';
 import Checkbox, { CheckBoxOnChange } from '../Checkbox';
 
@@ -38,6 +38,14 @@ const Table = ({
     setCheckBoxesState(() => data.map(() => false));
   }, [data]);
 
+  const numberItensSelected = useMemo(() => checkBoxesState.reduce((acumulador, checked) => {
+    if (checked) {
+      return acumulador + 1;
+    }
+
+    return acumulador;
+  }, 0), [checkBoxesState]);
+
   const handleCheckBoxOnChange = useCallback(({ name }: CheckBoxOnChange) => {
     const index = Number(name);
 
@@ -49,9 +57,26 @@ const Table = ({
     }));
   }, []);
 
+  const getHeaderSuffix = () => {
+    if (numberItensSelected > 1) {
+      return 'itens selecionados';
+    }
+    return 'item selecionado';
+  };
+
+  const theme = useTheme();
+
   return (
     <Container>
-      <span>{ titleTable }</span>
+      <Header hasSelectedItem={numberItensSelected > 0}>
+        <span>{ numberItensSelected ? `${numberItensSelected} ${getHeaderSuffix()}` : titleTable }</span>
+
+        <Actions>
+          { numberItensSelected === 1 && <ActionWrapper title="Editar item selecionado"><MdCreate size={24} color={theme.colors.font.primary} /></ActionWrapper>}
+          { numberItensSelected > 0 && <ActionWrapper title={`Excluir ${getHeaderSuffix()}`}><MdDelete size={24} color={theme.colors.danger} /></ActionWrapper>}
+
+        </Actions>
+      </Header>
 
       <header>
         { editable && <CheckBoxWrapper /> }
@@ -61,7 +86,7 @@ const Table = ({
       <BreakLine />
 
       {data.map((item, index) => (
-        <RowBody>
+        <RowBody checked={checkBoxesState[index]}>
           {/*   { editable && <CheckBoxWrapper><input type="checkbox" key={index.toString()} name={index.toString()} onChange={handleCheckBoxOnChange} checked={checkBoxesState[index]} /></CheckBoxWrapper> } */}
           { editable && (
             <CheckBoxWrapper>

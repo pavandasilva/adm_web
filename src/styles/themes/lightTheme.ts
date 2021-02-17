@@ -96,6 +96,7 @@ export const lightTheme = {
     primary: '#109CF1',
     warning: '#FFB946',
     danger: '#F7685B',
+    dangerLight: 'rgb(250, 224, 233)',
     success: '#2ED47A',
     ok: '#885AF8',
   },
