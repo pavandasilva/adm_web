@@ -3,6 +3,20 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     title: string,
+    checkBoxes: {
+      primary: {
+        default: {
+          backgroundColor: string,
+          color: string,
+          borderColor: string,
+        },
+        checked: {
+          backgroundColor: string,
+          color: string,
+          borderColor: string,
+        }
+      },
+    },
     colors : {
       font: {
         primary: string,

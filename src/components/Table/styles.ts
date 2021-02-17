@@ -82,10 +82,23 @@ export const BreakLine = styled.div`
   padding : 1px;
 `;
 
-export const CheckBox = styled.div`
+export const CheckBoxWrapper = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: center;
   width: 60px;
+
+  > input {
+    cursor: pointer;
+  }
+
+
+  &:hover {
+    input {
+      background-color: red;
+    }
+
+
+  }
 `;

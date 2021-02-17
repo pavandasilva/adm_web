@@ -1,5 +1,19 @@
 export const lightTheme = {
   title: 'lightTheme',
+  checkBoxes: {
+    primary: {
+      default: {
+        backgroundColor: 'transparent',
+        color: '#FFF',
+        borderColor: '#D5D5D5',
+      },
+      checked: {
+        backgroundColor: '#34AFF9',
+        color: '#FFF',
+        borderColor: '#109CF1',
+      },
+    },
+  },
   buttons: {
     primary: {
       default: {

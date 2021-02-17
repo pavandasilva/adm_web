@@ -1,8 +1,15 @@
-import React from 'react';
+/* eslint-disable consistent-return */
+/* eslint-disable no-shadow */
+import React, {
+  ChangeEvent, useCallback, useEffect, useState,
+} from 'react';
+
+import { produce } from 'immer';
 
 import {
-  Container, HeaderCell, BodyCell, RowBody, BreakLine, CheckBox,
+  Container, HeaderCell, BodyCell, RowBody, BreakLine, CheckBoxWrapper,
 } from './styles';
+import Checkbox from '../Checkbox';
 
 export type HeaderType = {
   title: string
@@ -20,34 +27,61 @@ interface TableProps {
   title: string
 }
 
+type CheckBoxState = boolean[]
+
 const Table = ({
   data, header, editable = false, title: titleTable,
-}: TableProps) => (
-  <Container>
-    <span>{ titleTable }</span>
+}: TableProps) => {
+  const [checkBoxesState, setCheckBoxesState] = useState([] as CheckBoxState);
 
-    <header>
-      { editable && <CheckBox /> }
-      { header.map(({ title }) => <HeaderCell collumns={header.length} editable>{title}</HeaderCell>) }
-    </header>
+  useEffect(() => {
+    setCheckBoxesState(() => data.map(() => false));
+  }, [data]);
 
-    <BreakLine />
+  const handleCheckBoxOnChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const index = Number(e.target.name);
 
-    {data.map((item) => (
-      <RowBody>
-        { editable && <CheckBox><input type="checkbox" name="" id="" /></CheckBox> }
-        {
-          header.map(({ reference, contrast = false }) => (
-            <BodyCell collumns={header.length} contrast={contrast} editable>
-              {item[reference]}
-            </BodyCell>
-          ))
-        }
-      </RowBody>
+    setCheckBoxesState((state) => state.map((item, idx) => {
+      if (idx === index) {
+        return !item;
+      }
+      return item;
+    }));
+  }, []);
 
-    ))}
+  return (
+    <Container>
+      <span>{ titleTable }</span>
 
-  </Container>
-);
+      <header>
+        { editable && <CheckBoxWrapper /> }
+        { header.map(({ title }) => <HeaderCell collumns={header.length} editable>{title}</HeaderCell>) }
+      </header>
+
+      <BreakLine />
+
+      {data.map((item, index) => (
+        <RowBody>
+          {/*   { editable && <CheckBoxWrapper><input type="checkbox" key={index.toString()} name={index.toString()} onChange={handleCheckBoxOnChange} checked={checkBoxesState[index]} /></CheckBoxWrapper> } */}
+          { editable && (
+            <CheckBoxWrapper>
+              <Checkbox checked={checkBoxesState[index]} />
+            </CheckBoxWrapper>
+          )}
+
+          {
+            header.map(({ reference, contrast = false }) => (
+              <BodyCell collumns={header.length} contrast={contrast} editable>
+                {item[reference]}
+              </BodyCell>
+            ))
+          }
+        </RowBody>
+
+      ))}
+
+    </Container>
+  );
+};
 
 export default Table;
