@@ -9,11 +9,7 @@ export const increasingWidth = () => keyframes`
   }
 `;
 
-export const opacity = () => keyframes`
-  0% {
-      transform : opacity(0);
-  }
-  100% {
-      transform : opacity(1);
-  }
+export const fadein = () => keyframes`
+  from { opacity: 0; }
+  to   { opacity: 1; }
 `;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Color } from '.';
+import { fadein } from '../../styles/themes/animations';
 
 interface ContainerCheckboxStyles {
   color: Color
@@ -17,6 +18,7 @@ export const Container = styled.div<ContainerCheckboxStyles>`
 
   transition: all 0.3s;
   transition-delay: 0.04s;
+  animation: ${fadein} 0.6s ease-in-out forwards;
 
   > svg {
     width: 12px;

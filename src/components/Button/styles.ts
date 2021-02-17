@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ButtonColor } from '.';
+import { fadein } from '../../styles/themes/animations';
 
 interface ContainerButton {
   color: ButtonColor
@@ -19,6 +20,7 @@ export const Container = styled.button<ContainerButton>`
   color: ${(props) => props.theme.buttons[props.color].default.fontColor};
   letter-spacing: 0.1em;
   border-radius: 5px;
+  animation: ${fadein} 0.6s ease-in-out forwards;
 
   &:hover{
     background: ${(props) => props.theme.buttons[props.color].hover.backgroundColor};

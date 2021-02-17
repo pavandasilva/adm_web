@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { SampleStatusColor } from '.';
+import { fadein } from '../../styles/themes/animations';
 
 interface SampleStatusStylesProps {
   color: SampleStatusColor
@@ -9,6 +10,7 @@ export const Container = styled.div<SampleStatusStylesProps>`
   display: flex;
   align-items: center;
   height: 22px;
+  animation: ${fadein} 0.6s ease-in-out forwards;
 
 > div {
   width: 8px;

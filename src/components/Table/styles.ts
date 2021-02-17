@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { fadein } from '../../styles/themes/animations';
 
 interface TableHeaderStyles {
   collumns: number
@@ -17,6 +18,7 @@ export const Container = styled.div`
   background-color: ${(props) => props.theme.colors.mainBackground};
   border-radius: 5px;
   overflow: hidden;
+  animation: ${fadein} 0.6s ease-in-out forwards;
 
   > span {
     display: flex;

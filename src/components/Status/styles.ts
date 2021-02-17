@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ColorStatus } from '.';
+import { fadein } from '../../styles/themes/animations';
 
 interface StatusStylesProps {
   color: ColorStatus
@@ -19,4 +20,5 @@ export const Container = styled.div<StatusStylesProps>`
   font-size: 11px;
   letter-spacing: 1px;
   user-select: none;
+  animation: ${fadein} 0.6s ease-in-out forwards;
 `;

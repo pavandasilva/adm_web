@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { SearchColor } from '.';
+import { fadein } from '../../styles/themes/animations';
 
 interface SearchPropsStyles {
   color: SearchColor
@@ -12,6 +13,7 @@ export const Container = styled.div<SearchPropsStyles>`
   height: 38px;
   border-radius: 4px;
   background-color: ${(props) => props.theme.colors[props.color]};
+  animation: ${fadein} 0.6s ease-in-out forwards;
 
   input {
     border: none;

@@ -9,7 +9,7 @@ import { produce } from 'immer';
 import {
   Container, HeaderCell, BodyCell, RowBody, BreakLine, CheckBoxWrapper,
 } from './styles';
-import Checkbox from '../Checkbox';
+import Checkbox, { CheckBoxOnChange } from '../Checkbox';
 
 export type HeaderType = {
   title: string
@@ -38,8 +38,8 @@ const Table = ({
     setCheckBoxesState(() => data.map(() => false));
   }, [data]);
 
-  const handleCheckBoxOnChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    const index = Number(e.target.name);
+  const handleCheckBoxOnChange = useCallback(({ name }: CheckBoxOnChange) => {
+    const index = Number(name);
 
     setCheckBoxesState((state) => state.map((item, idx) => {
       if (idx === index) {
@@ -65,7 +65,7 @@ const Table = ({
           {/*   { editable && <CheckBoxWrapper><input type="checkbox" key={index.toString()} name={index.toString()} onChange={handleCheckBoxOnChange} checked={checkBoxesState[index]} /></CheckBoxWrapper> } */}
           { editable && (
             <CheckBoxWrapper>
-              <Checkbox checked={checkBoxesState[index]} />
+              <Checkbox name={index.toString()} checked={checkBoxesState[index]} onChange={handleCheckBoxOnChange} />
             </CheckBoxWrapper>
           )}
 

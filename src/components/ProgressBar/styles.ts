@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ProgressBarColor } from '.';
-import { increasingWidth } from '../../styles/themes/animations';
+import { fadein, increasingWidth } from '../../styles/themes/animations';
 
 interface ProgressBarStyles {
   percent: number
@@ -13,6 +13,7 @@ export const Container = styled.div<ProgressBarStyles>`
   background-color: ${(props) => props.theme.colors.mainBackgroundLight};
   overflow: hidden;
   width: 100%;
+  animation: ${fadein} 0.6s ease-in-out forwards;
 `;
 
 export const Bar = styled.div<ProgressBarStyles>`

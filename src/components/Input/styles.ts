@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ModeInput } from '.';
-import { increasingWidth, opacity } from '../../styles/themes/animations';
+import { fadein, increasingWidth } from '../../styles/themes/animations';
 
 interface ModeInputStyles {
   mode: ModeInput
@@ -44,6 +44,7 @@ export const Container = styled.div<ModeInputStyles>`
 
   border-bottom: 1px solid ${(props) => (props.focused ? props.theme.colors.font.primary : props.theme.colors.font.tertiary)};
   transition: all 700ms ease;
+  animation: ${fadein} 0.6s ease-in-out forwards;
 `;
 
 export const Title = styled.div<ModeInputStyles>`
@@ -85,6 +86,7 @@ export const ErrorMessage = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  animation: ${fadein} 0.6s ease-in-out forwards;
 `;
 
 export const InfoContent = styled.div<InfoContentStyles>`
@@ -102,6 +104,8 @@ export const InfoContent = styled.div<InfoContentStyles>`
     color:  ${(props) => (props.focused ? props.theme.colors.font.primary : props.theme.colors.font.tertiary)};
     transition: all 400ms ease;
   }
+
+  animation: ${fadein} 0.6s ease-in-out forwards;
 `;
 
 export const Line = styled.div<ModeInputStyles>`
