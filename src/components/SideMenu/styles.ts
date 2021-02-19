@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   width: 256px;
@@ -106,43 +106,6 @@ export const Avatar = styled.div`
 export const Menu = styled.div`
   padding: 25px 24px 40px;
   border-bottom: 1px solid ${(props) => props.theme.colors.borderColor};
-
-  ul {
-    li {
-      display: flex;
-      height: 20px;
-      font-weight: 500;
-      cursor: pointer;
-
-      > svg {
-        fill: ${(props) => props.theme.colors.mainBackground};
-        stroke-width: 1.5px;
-        stroke:${(props) => props.theme.colors.font.primary};
-        font-size: 18px;
-      }
-
-      > span {
-        margin-left: 14px;
-      }
-
-
-      &:hover {
-        color: ${(props) => props.theme.colors.font.quintenary};
-
-        > svg {
-          stroke: ${(props) => props.theme.colors.font.quintenary};
-          transition-delay: 100ms;
-        }
-
-        transition-delay: 100ms;
-      }
-    }
-
-    li + li {
-      margin-top: 17px;
-    }
-  }
-
 `;
 export const SubMenu = styled.div`
   padding: 0px 24px;
@@ -178,4 +141,54 @@ export const SubMenu = styled.div`
       }
     }
   }
+`;
+
+interface LiProps {
+  active?: boolean
+}
+
+export const Li = styled.li<LiProps>`
+  display: flex;
+  height: 20px;
+  font-weight: 500;
+  cursor: pointer;
+
+  > svg {
+    fill: ${(props) => props.theme.colors.mainBackground};
+    stroke-width: 1.5px;
+    stroke:${(props) => props.theme.colors.font.primary};
+    font-size: 18px;
+  }
+
+  > span {
+    margin-left: 14px;
+  }
+
+
+  &:hover {
+    color: ${(props) => props.theme.colors.font.quintenary};
+
+    > svg {
+      stroke: ${(props) => props.theme.colors.font.quintenary};
+      transition-delay: 100ms;
+    }
+
+    transition-delay: 100ms;
+  }
+
+  + li {
+    margin-top: 17px;
+  }
+
+  ${(props) => props.active && css`
+    > span {
+      transition-delay: 100ms;
+      color: ${props.theme.colors.font.quintenary};
+    }
+
+    > svg {
+      stroke: ${props.theme.colors.font.quintenary};
+      transition-delay: 100ms;
+    }
+  `}
 `;
