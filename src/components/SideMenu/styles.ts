@@ -45,19 +45,7 @@ export const Container = styled.div`
 
 
     > svg {
-      fill: ${(props) => props.theme.colors.font.secondary};
-    }
-
-    &:hover {
-      color: ${(props) => props.theme.colors.font.quintenary};
-
-
-      svg {
-        fill: ${(props) => props.theme.colors.font.quintenary};
-        transition-delay: 100ms;
-      }
-
-      transition-delay: 100ms;
+      fill: ${(props) => props.theme.colors.font.tertiary};
     }
   }
 
@@ -80,8 +68,10 @@ export const Info = styled.div`
   overflow: hidden;
   width: 100%;
 
+
   span {
     color: ${(props) => props.theme.colors.font.primary};
+
   }
   p {
     font-size: 10px;
@@ -110,37 +100,6 @@ export const Menu = styled.div`
 export const SubMenu = styled.div`
   padding: 0px 24px;
   margin-top: 27px;
-
-  ul {
-    li {
-      display: flex;
-      align-items: center;
-      height: 20px;
-      font-weight: 500;
-      cursor: pointer;
-
-      > svg {
-        fill: ${(props) => props.theme.colors.font.primary};
-        transition-delay: 100ms;
-      }
-
-      > span {
-        margin-left: 14px;
-      }
-
-
-      &:hover {
-        color: ${(props) => props.theme.colors.font.quintenary};
-        transition-delay: 100ms;
-
-        svg {
-          fill: ${(props) => props.theme.colors.font.quintenary};
-        }
-
-        transition-delay: 100ms;
-      }
-    }
-  }
 `;
 
 interface LiProps {
@@ -156,12 +115,13 @@ export const Li = styled.li<LiProps>`
   > svg {
     fill: ${(props) => props.theme.colors.mainBackground};
     stroke-width: 1.5px;
-    stroke:${(props) => props.theme.colors.font.primary};
+    stroke:${(props) => props.theme.colors.font.tertiary};
     font-size: 18px;
   }
 
   > span {
     margin-left: 14px;
+    letter-spacing: 1px;
   }
 
 
