@@ -18,6 +18,10 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
   }
 
   button {

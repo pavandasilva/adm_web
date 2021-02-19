@@ -23,12 +23,14 @@ declare module 'styled-components' {
         secondary: string,
         tertiary: string,
         quaternary: string,
+        quintenary: string,
         reverse: string
       },
 
       mainBackground: string,
       mainBackgroundLight: string
       mainBackgroundDarked: string,
+      borderColor: string,
       primary: string,
       warning: string,
       danger: string,
