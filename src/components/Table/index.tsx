@@ -15,7 +15,7 @@ export type HeaderType = {
   title: string
   reference: string
   contrast?: boolean
-  width?: number,
+  width?: number
 }
 
 export type DataType = any[]
@@ -25,6 +25,11 @@ interface TableProps {
   header: HeaderType[]
   editable?: boolean
   title: string
+}
+
+export interface WidthConfig {
+  withTotal: number
+  numbItemsHasWidht: number
 }
 
 type CheckBoxState = boolean[]
@@ -37,6 +42,29 @@ const Table = ({
   useEffect(() => {
     setCheckBoxesState(() => data.map(() => false));
   }, [data]);
+
+  const [widthConfig] = useState(() => {
+    const withTotal = header.reduce((acumulador, item) => {
+      if (item?.width && item.width > 0) {
+        return acumulador + item.width;
+      }
+
+      return acumulador;
+    }, 0);
+
+    const numbItemsHasWidht = header.reduce((acumulador, item) => {
+      if (item?.width && item.width > 0) {
+        return acumulador + 1;
+      }
+
+      return acumulador;
+    }, 0);
+
+    return {
+      withTotal,
+      numbItemsHasWidht,
+    };
+  });
 
   const numberItensSelected = useMemo(() => checkBoxesState.reduce((acumulador, checked) => {
     if (checked) {
@@ -57,30 +85,24 @@ const Table = ({
     }));
   }, []);
 
-  const getHeaderSuffix = () => {
-    if (numberItensSelected > 1) {
-      return 'itens selecionados';
-    }
-    return 'item selecionado';
-  };
-
+  const headerSuffix = numberItensSelected > 1 ? 'itens selecionados' : 'item selecionado';
   const theme = useTheme();
 
   return (
     <Container>
       <Header hasSelectedItem={numberItensSelected > 0}>
-        <span>{ numberItensSelected ? `${numberItensSelected} ${getHeaderSuffix()}` : titleTable }</span>
+        <span>{ numberItensSelected ? `${numberItensSelected} ${headerSuffix}` : titleTable }</span>
 
         <Actions>
           { numberItensSelected === 1 && <ActionWrapper title="Editar item selecionado"><MdCreate size={24} color={theme.colors.font.primary} /></ActionWrapper>}
-          { numberItensSelected > 0 && <ActionWrapper title={`Excluir ${getHeaderSuffix()}`}><MdDelete size={24} color={theme.colors.danger} /></ActionWrapper>}
+          { numberItensSelected > 0 && <ActionWrapper title={`Excluir ${headerSuffix}`}><MdDelete size={24} color={theme.colors.danger} /></ActionWrapper>}
 
         </Actions>
       </Header>
 
       <header>
         { editable && <CheckBoxWrapper /> }
-        { header.map(({ title }) => <HeaderCell collumns={header.length} editable>{title}</HeaderCell>) }
+        { header.map(({ title, width }) => <HeaderCell width={width as number} className={width ? 'widthFixed' : ''} collumns={header.length} editable widthConfig={widthConfig}>{title}</HeaderCell>) }
       </header>
 
       <BreakLine />
@@ -95,8 +117,8 @@ const Table = ({
           )}
 
           {
-            header.map(({ reference, contrast = false }) => (
-              <BodyCell collumns={header.length} contrast={contrast} editable>
+            header.map(({ reference, contrast = false, width }) => (
+              <BodyCell width={width as number} className={width ? 'widthFixed' : ''} collumns={header.length} contrast={contrast} editable widthConfig={widthConfig}>
                 {item[reference]}
               </BodyCell>
             ))

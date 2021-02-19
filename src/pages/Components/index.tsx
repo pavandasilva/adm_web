@@ -23,15 +23,17 @@ const header: HeaderType[] = [
   {
     title: 'Empresa',
     reference: 'company',
+    width: 200,
   },
   {
     title: 'Cidade',
     reference: 'city',
+    width: 120,
   },
   {
     title: 'Situação',
     reference: 'status',
-    width: 100,
+    width: 150,
   },
 ];
 

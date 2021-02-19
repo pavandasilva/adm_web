@@ -1,16 +1,21 @@
 import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 import { fadein } from '../../styles/themes/animations';
+import { WidthConfig } from '.';
 
 interface TableHeaderStyles {
   collumns: number
   editable: boolean
+  widthConfig: WidthConfig
+  width: number
 }
 
 interface TableHeaderBodyStyles {
   contrast: boolean
   collumns: number
   editable: boolean
+  widthConfig: WidthConfig
+  width: number
 }
 
 interface HeaderStyles {
@@ -99,7 +104,19 @@ export const HeaderCell = styled.div<TableHeaderStyles>`
   letter-spacing: 1.2px;
   color: ${(props) => props.theme.colors.font.primary};
   height: 70px;
-  width: calc((100% - ${(props) => (props.editable ? '60px' : '0px')}) / ${(props) => props.collumns});
+
+  ${(props) => {
+    let total = props.editable ? 60 : 0;
+    total += props.widthConfig.withTotal || 0;
+
+    return css`
+     width: calc((100% - ${total}px) / (${props.collumns} - ${props.widthConfig.numbItemsHasWidht}));
+    `;
+  }}
+
+  &.widthFixed {
+    width:  ${(props) => `${props.width}px`};
+  }
 `;
 
 export const BodyCell = styled.div<TableHeaderBodyStyles>`
@@ -111,8 +128,20 @@ export const BodyCell = styled.div<TableHeaderBodyStyles>`
   font-weight:  ${(props) => (props.contrast ? '600' : 'normal')};
   height: 77px;
   letter-spacing: 1.2px;
-  width: calc((100% - ${(props) => (props.editable ? '60px' : '0px')}) / ${(props) => props.collumns});
   overflow: hidden;
+
+  ${(props) => {
+    let total = props.editable ? 60 : 0;
+    total += props.widthConfig.withTotal || 0;
+
+    return css`
+      width: calc((100% - ${total}px) / (${props.collumns} - ${props.widthConfig.numbItemsHasWidht}));
+    `;
+  }}
+
+  &.widthFixed {
+    width:  ${(props) => `${props.width}px`};
+  }
 `;
 
 export const RowBody = styled.div<RowBodyStyles>`
@@ -120,17 +149,13 @@ export const RowBody = styled.div<RowBodyStyles>`
   justify-content: space-between;
   width: 100%;
   border-top: 1px solid ${(props) => props.theme.colors.font.quaternary};
-  cursor: pointer;
 
   ${(props) => props.checked && css`
     background-color: ${props.theme.colors.mainBackgroundLight};
   `}
 
-  &:hover {
-    background-color: ${(props) => props.theme.colors.mainBackgroundLight};
-    transition: all 0.4s;
-    transition-delay: 0.004s;
-  }
+  transition: background-color 0.3s;
+  transition-delay: 0.02s;;
 `;
 
 export const BreakLine = styled.div`
@@ -154,7 +179,5 @@ export const CheckBoxWrapper = styled.div`
     input {
       background-color: red;
     }
-
-
   }
 `;

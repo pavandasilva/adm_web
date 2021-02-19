@@ -2,7 +2,7 @@ import React, {
   useCallback, useEffect, useMemo, useState,
 } from 'react';
 import Check from '../../assets/icons/svgs/Check';
-import { Container } from './styles';
+import { Wrapper, Container } from './styles';
 
 export interface CheckBoxOnChange {
   name: string
@@ -10,14 +10,14 @@ export interface CheckBoxOnChange {
 }
 
 export interface CheckBoxProps {
-  checked?: boolean,
+  checked: boolean,
   onChange: (checkBoxOnChange: CheckBoxOnChange) => void
   name: string
 }
 
 export type Color = 'default' | 'checked'
 
-const Checkbox = ({ checked: chekedProp = false, name, onChange }: CheckBoxProps) => {
+const Checkbox = ({ checked: chekedProp, name, onChange }: CheckBoxProps) => {
   const [checked, setChecked] = useState(chekedProp);
 
   useEffect(() => {
@@ -44,11 +44,14 @@ const Checkbox = ({ checked: chekedProp = false, name, onChange }: CheckBoxProps
   }, [checked]);
 
   return (
-    <Container onClick={checkBoxHandleOnClick} color={color}>
-      {/* { checked && 'ok' } */}
+    <Wrapper onClick={checkBoxHandleOnClick}>
+      <Container color={color}>
+        {/* { checked && 'ok' } */}
 
-      {checked && <Check />}
-    </Container>
+        {checked && <Check />}
+      </Container>
+    </Wrapper>
+
   );
 };
 

@@ -6,6 +6,15 @@ interface ContainerCheckboxStyles {
   color: Color
 }
 
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 100%;
+  cursor: pointer;
+`;
+
 export const Container = styled.div<ContainerCheckboxStyles>`
   display: flex;
   justify-content: center;
@@ -27,4 +36,5 @@ export const Container = styled.div<ContainerCheckboxStyles>`
     transition: all 0.3s;
     transition-delay: 0.04s;
   }
+
 `;
