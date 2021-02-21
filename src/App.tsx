@@ -5,6 +5,7 @@ import { GlobalStyle } from './styles/global';
 import { lightTheme } from './styles/themes/lightTheme';
 import store from './store';
 import DefaultLayout from './components/DefaultLayout';
+import Dashboard from './pages/Components/Dashboard';
 
 const App = () => (
   <>
@@ -12,7 +13,7 @@ const App = () => (
       <ThemeProvider theme={lightTheme}>
         {/* <Components /> */}
 
-        <DefaultLayout>ola</DefaultLayout>
+        <DefaultLayout><Dashboard /></DefaultLayout>
         <GlobalStyle />
       </ThemeProvider>
     </ReduxProvider>
