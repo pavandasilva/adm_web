@@ -11,17 +11,20 @@ export interface CheckBoxOnChange {
 
 export interface CheckBoxProps {
   checked: boolean,
-  onChange: (checkBoxOnChange: CheckBoxOnChange) => void
+  onChange?: (checkBoxOnChange: CheckBoxOnChange) => void
   name: string
+  children?: React.ReactNode
 }
 
 export type Color = 'default' | 'checked'
 
-const Checkbox = ({ checked: chekedProp, name, onChange }: CheckBoxProps) => {
+const Checkbox = ({
+  checked: chekedProp, name, onChange, children,
+}: CheckBoxProps) => {
   const [checked, setChecked] = useState(chekedProp);
 
   useEffect(() => {
-    onChange({
+    onChange && onChange({
       name,
       checked,
     });
@@ -47,9 +50,11 @@ const Checkbox = ({ checked: chekedProp, name, onChange }: CheckBoxProps) => {
     <Wrapper onClick={checkBoxHandleOnClick}>
       <Container color={color}>
         {/* { checked && 'ok' } */}
-
         {checked && <Check />}
       </Container>
+      <aside>
+        { children }
+      </aside>
     </Wrapper>
 
   );

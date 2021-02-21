@@ -10,9 +10,15 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
+  width: 150px;
   height: 100%;
   cursor: pointer;
+
+  aside {
+    font-size: 12px;
+    color: ${(props) => props.theme.colors.font.secondary};
+    margin-left: 7px;
+  }
 `;
 
 export const Container = styled.div<ContainerCheckboxStyles>`
@@ -36,5 +42,7 @@ export const Container = styled.div<ContainerCheckboxStyles>`
     transition: all 0.3s;
     transition-delay: 0.04s;
   }
+
+
 
 `;

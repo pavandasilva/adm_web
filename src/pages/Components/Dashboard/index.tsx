@@ -1,14 +1,188 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { MdArrowDropUp, MdArrowDropDown } from 'react-icons/md';
+import Checkbox from '../../../components/Checkbox';
+import ProgressBar from '../../../components/ProgressBar';
+import Search from '../../../components/Search';
+import Status from '../../../components/Status';
 
 import {
-  Card, Container, Info, BankAccounts, Account, Balance,
+  Card, Container, Info, BankAccounts, Account, Balance, FixedHeader, Main, SearchWrapper, Bars, Accounts, AccountCard,
 } from './styles';
 
 const Dashboard = () => (
   <Container>
-    <div>Main</div>
+    <Main>
+      <header>
+        <h2>Entradas e saídas</h2>
+        <aside>
+          <Checkbox name="toPay" checked={false}>a pagar</Checkbox>
+          <Checkbox name="toReceive" checked={false}>a receber</Checkbox>
+          <Checkbox name="late" checked={false}>em atraso</Checkbox>
+        </aside>
+      </header>
+      <SearchWrapper>
+        <Search color="mainBackgroundLight" placeholder="Buscar por palavra-chave" />
+      </SearchWrapper>
+      <Bars>
+        <ProgressBar color="success" percent={76} />
+        <ProgressBar color="danger" percent={23} />
+      </Bars>
+      <Accounts>
+        <AccountCard>
+          <div>
+            <h2>CPFL Paulista</h2>
+            <p>
+              Vencimento:
+              {' '}
+              <strong>23 de dezembro, 2018</strong>
+              {' '}
+            </p>
+            <p>4/8</p>
+            <span>#12333-Maria Olivares</span>
+          </div>
+          <aside>
+            <span>Vendas</span>
+            <strong>123,00</strong>
+            <Status color="danger">a pagar</Status>
+          </aside>
+
+        </AccountCard>
+        <AccountCard>
+          <div>
+            <h2>CPFL Paulista</h2>
+            <p>
+              Vencimento:
+              {' '}
+              <strong>23 de dezembro, 2018</strong>
+              {' '}
+            </p>
+            <p>4/8</p>
+            <span>#12333-Maria Olivares</span>
+          </div>
+          <aside>
+            <span>Vendas</span>
+            <strong>123,00</strong>
+            <Status color="success">a receber</Status>
+          </aside>
+
+        </AccountCard>
+        <AccountCard>
+          <div>
+            <h2>CPFL Paulista</h2>
+            <p>
+              Vencimento:
+              {' '}
+              <strong>23 de dezembro, 2018</strong>
+              {' '}
+            </p>
+            <p>4/8</p>
+            <span>#12333-Maria Olivares</span>
+          </div>
+          <aside>
+            <span>Vendas</span>
+            <strong>123,00</strong>
+            <Status color="success">a receber</Status>
+          </aside>
+
+        </AccountCard>
+        <AccountCard>
+          <div>
+            <h2>CPFL Paulista</h2>
+            <p>
+              Vencimento:
+              {' '}
+              <strong>23 de dezembro, 2018</strong>
+              {' '}
+            </p>
+            <p>4/8</p>
+            <span>#12333-Maria Olivares</span>
+          </div>
+          <aside>
+            <span>Vendas</span>
+            <strong>123,00</strong>
+            <Status color="success">a receber</Status>
+          </aside>
+
+        </AccountCard>
+        <AccountCard>
+          <div>
+            <h2>CPFL Paulista</h2>
+            <p>
+              Vencimento:
+              {' '}
+              <strong>23 de dezembro, 2018</strong>
+              {' '}
+            </p>
+            <p>4/8</p>
+            <span>#12333-Maria Olivares</span>
+          </div>
+          <aside>
+            <span>Vendas</span>
+            <strong>123,00</strong>
+            <Status color="success">a receber</Status>
+          </aside>
+
+        </AccountCard>
+        <AccountCard>
+          <div>
+            <h2>CPFL Paulista</h2>
+            <p>
+              Vencimento:
+              {' '}
+              <strong>23 de dezembro, 2018</strong>
+              {' '}
+            </p>
+            <p>4/8</p>
+            <span>#12333-Maria Olivares</span>
+          </div>
+          <aside>
+            <span>Vendas</span>
+            <strong>123,00</strong>
+            <Status color="success">a receber</Status>
+          </aside>
+
+        </AccountCard>
+        <AccountCard>
+          <div>
+            <h2>CPFL Paulista</h2>
+            <p>
+              Vencimento:
+              {' '}
+              <strong>23 de dezembro, 2018</strong>
+              {' '}
+            </p>
+            <p>4/8</p>
+            <span>#12333-Maria Olivares</span>
+          </div>
+          <aside>
+            <span>Vendas</span>
+            <strong>123,00</strong>
+            <Status color="danger">a pagar</Status>
+          </aside>
+
+        </AccountCard>
+        <AccountCard>
+          <div>
+            <h2>CPFL Paulista</h2>
+            <p>
+              Vencimento:
+              {' '}
+              <strong>23 de dezembro, 2018</strong>
+              {' '}
+            </p>
+            <p>4/8</p>
+            <span>#12333-Maria Olivares</span>
+          </div>
+          <aside>
+            <span>Vendas</span>
+            <strong>123,00</strong>
+            <Status color="success">a receber</Status>
+          </aside>
+
+        </AccountCard>
+      </Accounts>
+    </Main>
     <aside>
       <Info>
         <Card>
@@ -49,6 +223,51 @@ const Dashboard = () => (
       </Info>
       <BankAccounts>
         <h3>Contas bancárias</h3>
+        <Account>
+          <p>Itau: 22</p>
+          <p>Agência: 021</p>
+          <p>C/C: 172090-130</p>
+          <p>Titular: Rogerio Pavan da Silva</p>
+          <footer>
+            <h4>Extrato</h4>
+
+            <Balance>
+              <span>Saldo</span>
+              <strong>24010,34</strong>
+            </Balance>
+
+          </footer>
+        </Account>
+        <Account>
+          <p>Itau: 22</p>
+          <p>Agência: 021</p>
+          <p>C/C: 172090-130</p>
+          <p>Titular: Rogerio Pavan da Silva</p>
+          <footer>
+            <h4>Extrato</h4>
+
+            <Balance>
+              <span>Saldo</span>
+              <strong>24010,34</strong>
+            </Balance>
+
+          </footer>
+        </Account>
+        <Account>
+          <p>Itau: 22</p>
+          <p>Agência: 021</p>
+          <p>C/C: 172090-130</p>
+          <p>Titular: Rogerio Pavan da Silva</p>
+          <footer>
+            <h4>Extrato</h4>
+
+            <Balance>
+              <span>Saldo</span>
+              <strong>24010,34</strong>
+            </Balance>
+
+          </footer>
+        </Account>
         <Account>
           <p>Itau: 22</p>
           <p>Agência: 021</p>
