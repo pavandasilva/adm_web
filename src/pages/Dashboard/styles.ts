@@ -7,10 +7,11 @@ export const Container = styled.div`
 
   > aside {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 800px;
     height: 100%;
     flex-wrap: wrap;
+    align-items: flex-start;
   }
 `;
 
@@ -20,9 +21,8 @@ export const FixedHeader = styled.div`
 
 export const Info = styled.div`
   display: flex;
-  height: auto;
+  height: 378px;
   flex-direction: column;
-  background-color: yellow;
 `;
 
 export const Card = styled.div`
@@ -240,4 +240,15 @@ export const AccountCard = styled.div`
     flex-direction: column;
     width: 100px;
   }
+`;
+
+export const Row = styled.div`
+  width: 100%;
+  display: flex;
+`;
+
+export const Chart = styled.div`
+  width: 100%;
+  margin-top: 8px;
+
 `;

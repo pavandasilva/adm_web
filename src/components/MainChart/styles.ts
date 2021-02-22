@@ -51,11 +51,6 @@ export const Bar = styled.div<BarStylesProps>`
   background-color: ${(props) => props.theme.colors[props.color]};
 
 
-  background-color:  ${(props) => linearGradient({
-    colorStops: [`${props.theme.colors[props.color]} 0%`, `${darken(0.18, props.theme.colors[props.color])} 100%`],
-    toDirection: '45deg',
-  })};
-
   &:hover {
     > div {
       opacity: 1;
@@ -97,7 +92,7 @@ export const Sections = styled.div`
   bottom: 85px;
   width: calc(100% - 100px);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 53.5%;
 
   > section {
@@ -106,7 +101,7 @@ export const Sections = styled.div`
     position: relative;
 
     & + section {
-      margin-left: 75px;
+      margin-left: 20px;
     }
 
     & > span {
@@ -184,11 +179,7 @@ export const SubTitles = styled.div`
 `;
 
 export const SquareSubtitle = styled.div<SquareSubtitleStylesProps>`
-  background-color: ${(props) => linearGradient({
-    colorStops: [`${props.theme.colors[props.color]} 0%`, `${darken(0.18, props.theme.colors[props.color])} 100%`],
-    toDirection: '45deg',
-  })};
-
+  background-color: ${(props) => props.theme.colors[props.color]};
   width: 15px;
   height: 15px;
   border-radius: 2px;
