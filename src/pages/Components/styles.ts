@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   padding: 50px;
   height: 100%;
-  background: ${(props) => props.theme.colors.mainBackground};
+  background: ${(props) => props.theme.colors.mainBackgroundDarked};
   flex-wrap: wrap;
 
   h2 {

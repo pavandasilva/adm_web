@@ -8,8 +8,9 @@ export const Container = styled.div`
   > aside {
     display: flex;
     flex-direction: row;
-    width: 600px;
+    width: 800px;
     height: 100%;
+    flex-wrap: wrap;
   }
 `;
 
@@ -19,7 +20,9 @@ export const FixedHeader = styled.div`
 
 export const Info = styled.div`
   display: flex;
+  height: auto;
   flex-direction: column;
+  background-color: yellow;
 `;
 
 export const Card = styled.div`
@@ -64,7 +67,7 @@ export const Card = styled.div`
 
 export const BankAccounts = styled.div`
   background-color: ${(props) => props.theme.colors.mainBackground};
-  width: 100%;
+  flex: 1;
   margin-left: 8px;
   border-top: 16px solid  ${(props) => props.theme.colors.mainBackground};
   border-bottom: 16px solid  ${(props) => props.theme.colors.mainBackground};

@@ -9,6 +9,7 @@ import Search from '../../components/Search';
 import Input from '../../components/Input';
 import ProgressBar from '../../components/ProgressBar';
 import Table, { DataType, HeaderType } from '../../components/Table';
+import MainChart from '../../components/MainChart';
 
 const header: HeaderType[] = [
   {
@@ -215,6 +216,65 @@ const Components = () => (
       <Table title="Table Demonstração" data={data} header={header} editable />
     </TableDemo>
 
+    <MainChart
+      subtitles={{
+        danger: 'Saídas',
+        success: 'Entradas',
+      }}
+      symbol="R$"
+      values={[
+        {
+          success: 200,
+          danger: 10,
+          subtitle: '22JAN2020',
+        },
+        {
+          success: 900,
+          danger: 900,
+          subtitle: '23JAN2020',
+        },
+        {
+          success: 230,
+          danger: 20,
+          subtitle: '24JAN2020',
+        },
+        {
+          success: 345,
+          danger: 9,
+          subtitle: '25JAN2020',
+        },
+        {
+          success: 50,
+          danger: 8,
+          subtitle: '26JAN2020',
+        },
+        {
+          success: 200,
+          danger: 10,
+          subtitle: '27JAN2020',
+        },
+        {
+          success: 910,
+          danger: 900,
+          subtitle: '28JAN2020',
+        },
+        {
+          success: 230,
+          danger: 20,
+          subtitle: '29JAN2020',
+        },
+        {
+          success: 345,
+          danger: 9,
+          subtitle: '30JAN2020',
+        },
+        {
+          success: 50,
+          danger: 8,
+          subtitle: '31JAN2020',
+        },
+      ]}
+    />
   </Container>
 );
 

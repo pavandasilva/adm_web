@@ -1,10 +1,11 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { MdArrowDropUp, MdArrowDropDown } from 'react-icons/md';
-import Checkbox from '../../../components/Checkbox';
-import ProgressBar from '../../../components/ProgressBar';
-import Search from '../../../components/Search';
-import Status from '../../../components/Status';
+import Checkbox from '../../components/Checkbox';
+import MainChart from '../../components/MainChart';
+import ProgressBar from '../../components/ProgressBar';
+import Search from '../../components/Search';
+import Status from '../../components/Status';
 
 import {
   Card, Container, Info, BankAccounts, Account, Balance, FixedHeader, Main, SearchWrapper, Bars, Accounts, AccountCard,
