@@ -54,7 +54,6 @@ const MainChart = ({ values, symbol, subtitles }: MainChartProps) => {
       <header>Fluxo de caixa</header>
       <SubTitles>
         <div>
-          {' '}
           <SquareSubtitle color="success" />
           <span>{subtitles.success}</span>
         </div>

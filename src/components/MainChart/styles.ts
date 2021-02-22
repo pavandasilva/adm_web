@@ -1,6 +1,6 @@
 import { darken, linearGradient } from 'polished';
 import styled from 'styled-components';
-import { increasingHeight } from '../../styles/themes/animations';
+import { fadein, increasingHeight } from '../../styles/themes/animations';
 
 interface BarStylesProps {
   percent: number
@@ -92,7 +92,7 @@ export const Sections = styled.div`
   bottom: 85px;
   width: calc(100% - 100px);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   height: 53.5%;
 
   > section {
@@ -101,7 +101,7 @@ export const Sections = styled.div`
     position: relative;
 
     & + section {
-      margin-left: 20px;
+      margin-left: 15px;
     }
 
     & > span {
@@ -170,17 +170,20 @@ export const SubTitles = styled.div`
 
     > span {
       margin-left: 8px;
+      font-weight: normal;
       font-size: 11px;
       line-height: 18px;
       letter-spacing: 1.1px;
-      color: ${(props) => props.theme.colors.font.secondary};
+      color: ${(props) => props.theme.colors.font.primary};
     }
   }
+
+  animation:  ${fadein} 0.6s forwards;
 `;
 
 export const SquareSubtitle = styled.div<SquareSubtitleStylesProps>`
   background-color: ${(props) => props.theme.colors[props.color]};
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   border-radius: 2px;
 `;
