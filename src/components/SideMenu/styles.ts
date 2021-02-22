@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 256px;
   height: 100vh;
   background-color: ${(props) => props.theme.colors.mainBackground};
-  position: relative;
+  position: fixed;
 
   > header {
     display: flex;

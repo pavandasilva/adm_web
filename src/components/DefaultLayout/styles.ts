@@ -10,8 +10,9 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   width: 100%;
+  margin-left: 256px;
 
   > header {
     display: flex;
@@ -41,7 +42,7 @@ export const Content = styled.div`
 `;
 
 export const Body = styled.div`
-  height: 100%;
+  height: calc(100% -  60px);
 `;
 
 export const Alert = styled.div`
