@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { MdArrowDropUp, MdArrowDropDown } from 'react-icons/md';
+import Calendar from '../../components/Calendar';
 import Checkbox from '../../components/Checkbox';
 import MainChart from '../../components/MainChart';
 import ProgressBar from '../../components/ProgressBar';
@@ -8,7 +9,7 @@ import Search from '../../components/Search';
 import Status from '../../components/Status';
 
 import {
-  Card, Container, Info, BankAccounts, Account, Balance, FixedHeader, Main, SearchWrapper, Bars, Accounts, AccountCard, Row, Chart,
+  Card, Container, Info, BankAccounts, Account, Balance, Main, SearchWrapper, Bars, Accounts, AccountCard, Row, Chart,
 } from './styles';
 
 const Dashboard = () => (
@@ -29,6 +30,7 @@ const Dashboard = () => (
         <ProgressBar color="success" percent={76} />
         <ProgressBar color="danger" percent={23} />
       </Bars>
+      <Calendar />
       <Accounts>
         <AccountCard>
           <div>

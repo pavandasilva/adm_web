@@ -9,7 +9,6 @@ export const Container = styled.div`
   width: 100%;
   background-color: ${(props) => props.theme.colors.mainBackground};
   height: 150px;
-  border-bottom: 1px solid ${(props) => props.theme.colors.borderColor};
   padding: 11px 18px;
 
   > h2 {
@@ -43,8 +42,6 @@ export const Day = styled.div<DayStylesProps>`
     line-height: 19px;
     letter-spacing: 1px;
     color: ${(props) => (props.isToday ? props.theme.colors.font.quintenary : props.theme.colors.font.secondary)};
-
-
   }
 
   p {
