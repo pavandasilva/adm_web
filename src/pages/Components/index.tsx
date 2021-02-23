@@ -10,6 +10,7 @@ import Input from '../../components/Input';
 import ProgressBar from '../../components/ProgressBar';
 import Table, { DataType, HeaderType } from '../../components/Table';
 import MainChart from '../../components/MainChart';
+import Calendar from '../../components/Calendar';
 
 const header: HeaderType[] = [
   {
@@ -275,6 +276,8 @@ const Components = () => (
         },
       ]}
     />
+
+    <Calendar />
   </Container>
 );
 

@@ -12,8 +12,8 @@ const App = () => (
   <>
     <ReduxProvider store={store}>
       <ThemeProvider theme={lightTheme}>
-        {/*  <Components /> */}
-        <DefaultLayout><Dashboard /></DefaultLayout>
+        <Components />
+        {/*   <DefaultLayout><Dashboard /></DefaultLayout> */}
         <GlobalStyle />
       </ThemeProvider>
     </ReduxProvider>
